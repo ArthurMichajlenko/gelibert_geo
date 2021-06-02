@@ -45,6 +45,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Container(
+              height: 200,
+              width: double.infinity,
+              margin: EdgeInsets.all(5.0),
+              // padding: EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.blueGrey,
+                  width: 5,
+                ),
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
             Text(
               'You have pushed the button this many times:',
             ),
