@@ -90,3 +90,8 @@ class GeoData {
   @override
   int get hashCode => _id.hashCode ^ _macAddress.hashCode ^ _courierId.hashCode ^ _latitude.hashCode ^ _longitude.hashCode ^ _timestamp.hashCode;
 }
+
+List<GeoData> geodataFromJSON(String str) => List<GeoData>.from(json.decode(str).map((x) => GeoData.fromJson(x)));
+
+String geodataToJSON(List<GeoData> data) => json.encode(List<dynamic>.from(data.map((e) => e.toJson())));
+

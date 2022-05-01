@@ -93,3 +93,7 @@ class Courier {
     return _id.hashCode ^ _macAddress.hashCode ^ _tel.hashCode ^ _name.hashCode ^ _carNumber.hashCode ^ _timestamp.hashCode;
   }
 }
+
+List<Courier> couriersFromJSON(String str) => List<Courier>.from(json.decode(str).map((x) => Courier.fromJson(x)));
+
+String couriersToJSON(List<Courier> data) => json.encode(List<dynamic>.from(data.map((e) => e.toJson())));
