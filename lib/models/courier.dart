@@ -51,7 +51,7 @@ class Courier {
       '_tel': _tel,
       '_name': _name,
       '_carNumber': _carNumber,
-      '_timestamp': _timestamp.millisecondsSinceEpoch,
+      '_timestamp': _timestamp,
     };
   }
 
