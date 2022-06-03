@@ -46,23 +46,23 @@ class Courier {
 
   Map<String, dynamic> toMap() {
     return {
-      '_id': _id,
-      '_mac_address': _macAddress,
-      '_tel': _tel,
-      '_name': _name,
-      '_carNumber': _carNumber,
-      '_timestamp': _timestamp,
+      'id': _id,
+      'mac_address': _macAddress,
+      'tel': _tel,
+      'name': _name,
+      'car_number': _carNumber,
+      'timestamp': _timestamp,
     };
   }
 
   factory Courier.fromMap(Map<String, dynamic> map) {
     return Courier(
-      map['_id'] ?? '',
-      map['_mac_address'] ?? '',
-      map['_tel'] ?? '',
-      map['_name'] ?? '',
-      map['_carNumber'] ?? '',
-      DateTime.parse(map['_timestamp']),
+      map['id'] ?? '',
+      map['mac_address'] ?? '',
+      map['tel'] ?? '',
+      map['name'] ?? '',
+      map['car_number'] ?? '',
+      DateTime.parse(map['timestamp']),
     );
   }
 
@@ -72,7 +72,7 @@ class Courier {
 
   @override
   String toString() {
-    return 'Courier(_id: $_id, _mac_address: $_macAddress, _tel: $_tel, _name: $_name, _carNumber: $_carNumber, _timestamp: $_timestamp)';
+    return 'Courier(_id: $_id, _mac_address: $_macAddress, _tel: $_tel, _name: $_name, _car_number: $_carNumber, _timestamp: $_timestamp)';
   }
 
   @override
@@ -94,6 +94,6 @@ class Courier {
   }
 }
 
-List<Courier> couriersFromJSON(String str) => List<Courier>.from(json.decode(str).map((x) => Courier.fromJson(x)));
+List<Courier> couriersFromJSON(String str) => List<Courier>.from(json.decode(str).map((x) => Courier.fromMap(x)));
 
 String couriersToJSON(List<Courier> data) => json.encode(List<dynamic>.from(data.map((e) => e.toJson())));

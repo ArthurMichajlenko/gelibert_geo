@@ -46,23 +46,23 @@ class GeoData {
 
   Map<String, dynamic> toMap() {
     return {
-      '_id': _id,
-      '_macAddress': _macAddress,
-      '_courierId': _courierId,
-      '_latitude': _latitude,
-      '_longitude': _longitude,
-      '_timestamp': _timestamp,
+      'id': _id,
+      'mac_address': _macAddress,
+      'courier_id': _courierId,
+      'latitude': _latitude,
+      'longitude': _longitude,
+      'timestamp': _timestamp,
     };
   }
 
   factory GeoData.fromMap(Map<String, dynamic> map) {
     return GeoData(
-      map['_id']?.toInt() ?? 0,
-      map['_macAddress']?._macAddress ?? '',
-      map['_courierId']?._courierId ?? '',
-      map['_latitude']?.toDouble() ?? 0.0,
-      map['_longitude']?.toDouble() ?? 0.0,
-      DateTime.parse(map['_timestamp']),
+      map['id']?.toInt() ?? 0,
+      map['mac_address']?._macAddress ?? '',
+      map['courier_id']?._courierId ?? '',
+      map['latitude']?.toDouble() ?? 0.0,
+      map['longitude']?.toDouble() ?? 0.0,
+      DateTime.parse(map['timestamp']),
     );
   }
 
@@ -88,10 +88,15 @@ class GeoData {
   }
 
   @override
-  int get hashCode => _id.hashCode ^ _macAddress.hashCode ^ _courierId.hashCode ^ _latitude.hashCode ^ _longitude.hashCode ^ _timestamp.hashCode;
+  int get hashCode =>
+      _id.hashCode ^
+      _macAddress.hashCode ^
+      _courierId.hashCode ^
+      _latitude.hashCode ^
+      _longitude.hashCode ^
+      _timestamp.hashCode;
 }
 
-List<GeoData> geodataFromJSON(String str) => List<GeoData>.from(json.decode(str).map((x) => GeoData.fromJson(x)));
+List<GeoData> geodataFromJSON(String str) => List<GeoData>.from(json.decode(str).map((x) => GeoData.fromMap(x)));
 
 String geodataToJSON(List<GeoData> data) => json.encode(List<dynamic>.from(data.map((e) => e.toJson())));
-
