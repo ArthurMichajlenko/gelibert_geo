@@ -18,14 +18,6 @@ Future<void> main() async {
   runApp(const ProviderScope(child: MyApp()));
 }
 
-// final couriersProvider = FutureProvider<List<Courier>>((ref) async {
-//   final api = Api();
-//   final content = await http.get(Uri.parse('http://${api.serverURL}:${api.serverPort}/data/all_couriers'), headers: {
-//     HttpHeaders.authorizationHeader: "Bearer ${api.token}",
-//   });
-//   return couriersFromJSON(content.body);
-// });
-
 final reqDataProvider = StateProvider<RequestData>((ref) => RequestData());
 
 final counterStateProvider = StateProvider<int>((ref) => 0);
